@@ -14,10 +14,10 @@ Replace all instances of "thing" with your choice.
 
 
 ## Database
-* Make sure you have a database setup in mlab
+* Make sure you have a database setup somwhere that is running and have the connection string.
 * Use mongoose to connect to it in index.js
 * Decide on what your collection is going to be
-* Use mlab or robo 3t to add some test data
+* Use the web interface or robo 3t to add some test data if you want
 
 
 ## Model
