@@ -1,7 +1,12 @@
+
 const create = require("./create");
 const findAll = require("./find-all");
 const findById = require("./find-by-id");
 const findBy = require("./find-by");
+
+const mongoose = require('mongoose');
+mongoose.connect(`mongodb+srv://aaron:testing123@cluster0-hlfen.mongodb.net/test?retryWrites=true
+`, {useNewUrlParser: true});
 
 const readline = require('readline').createInterface({
   input: process.stdin,
@@ -10,10 +15,10 @@ const readline = require('readline').createInterface({
 
 printMenu();
 function printMenu(){
-  console.log("1. Create a new thing");
-  console.log("2. Find all things");
-  console.log("3. Find a thing by id");
-  console.log("4. Find a thing by");
+  console.log("1. Create a new person");
+  console.log("2. Find all persons");
+  console.log("3. Find a person by id");
+  console.log("4. Find a person by occupation");
   console.log("5. Exit");
   getMenuInput();
 }
@@ -39,6 +44,7 @@ function getMenuInput(){
     }
   });
 }
+
 let newThing = {
 
 }
@@ -64,6 +70,7 @@ function createThing(){
 function findAllThings(){
   findAll((data)=>{
     //show data
+    console.log(data);
     printMenu();
   });
 }
@@ -71,6 +78,7 @@ function findThingById(){
   readline.question("What is the id?", function(answer) {
     findById(answer,(result)=>{
       //print the result
+      console.log(result);
       printMenu();
     });
   });
@@ -78,9 +86,10 @@ function findThingById(){
   
 }
 function findThing(){
-  readline.question("What name do you want to find?", function(answer) {
+  readline.question("What occupation do you want to find?", function(answer) {
     findBy(answer,(result)=>{
       //print the result
+      console.log(result);
       printMenu();
     });
   });
